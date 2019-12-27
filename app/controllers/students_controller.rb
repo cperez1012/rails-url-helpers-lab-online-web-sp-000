@@ -11,6 +11,11 @@ class StudentsController < ApplicationController
 
   def active
     @student = Student.find(params[:id])
+    @student.active = !@student.active
+    @student.save
+
+    redirect to student_path(@student)
+  end
 
   private
 
